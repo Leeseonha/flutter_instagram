@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:instagram_flutter/src/pages/upload.dart';
 
 enum PageName { HOME, SEARCH, UPLOAD, ACTIVITY, MYPAGE }
 
@@ -8,17 +9,19 @@ class BottomNavController extends GetxController {
   void changeBottomNav(int value) {
     var page = PageName.values[value];
     switch (page) {
-      case PageName.HOME:
-        break;
-      case PageName.SEARCH:
-        break;
       case PageName.UPLOAD:
+        Get.to(() => Upload());
         break;
+      case PageName.HOME:
+      case PageName.SEARCH:
       case PageName.ACTIVITY:
-        break;
       case PageName.MYPAGE:
+        _changePage(value);
         break;
     }
+  }
+
+  void _changePage(int value) {
     pageIndex(value);
   }
 }
